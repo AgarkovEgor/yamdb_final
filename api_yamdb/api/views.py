@@ -19,8 +19,7 @@ class TitleViewSet(viewsets.ModelViewSet):
     filterset_class = CustomFilter
 
     def get_queryset(self):
-        queryset = Title.objects.annotate(rating=Avg('reviews__score')).all()
-        return queryset
+        return Title.objects.annotate(rating=Avg('reviews__score')).all()
 
     def get_serializer_class(self):
         if self.action in ('list', 'retrieve'):
