@@ -1,16 +1,16 @@
 from django.conf import settings
-from django.shortcuts import get_object_or_404
-from rest_framework.decorators import api_view, action
 from django.contrib.auth.tokens import default_token_generator
+from django.shortcuts import get_object_or_404
+from rest_framework import filters, pagination, permissions, status, viewsets
+from rest_framework.decorators import action, api_view
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
-from rest_framework import viewsets, pagination, permissions, filters, status
+from users.models import User
+from users.permissions import IsAdmin
+from users.serializers import (SignUpSerializers, TokenSerializer,
+                               UserSerializer)
 
 from api_yamdb.settings import SELF_USERNAME
-from users.models import User
-from users.serializers import (
-    TokenSerializer, SignUpSerializers, UserSerializer)
-from users.permissions import IsAdmin
 
 
 class UserViewSet(viewsets.ModelViewSet):

@@ -1,9 +1,10 @@
-from django.db.models import Avg
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db.models import Avg
 from rest_framework import serializers
-from reviews.models import Title, Category, Genre, Comment, Review
-from api_yamdb.settings import MIN_SCORE, MAX_SCORE
+from reviews.models import Category, Comment, Genre, Review, Title
 from reviews.validator import year_validate
+
+from api_yamdb.settings import MAX_SCORE, MIN_SCORE
 
 
 class CategorySerializer(serializers.ModelSerializer):

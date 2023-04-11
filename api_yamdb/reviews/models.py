@@ -1,9 +1,10 @@
+from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from users.models import User
-from django.conf import settings
 from reviews.validator import year_validate
-from api_yamdb.settings import MIN_SCORE, MAX_SCORE
+from users.models import User
+
+from api_yamdb.settings import MAX_SCORE, MIN_SCORE
 
 
 class Title(models.Model):
