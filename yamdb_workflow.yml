@@ -42,8 +42,10 @@ jobs:
           # Пуш образа в Docker Hub 
           uses: docker/build-push-action@v2 
           with:
+            context: api_yamdb
             push: true
-            tags: opgang/yamdb:v1 
+            tags: opgang/yamdb:v1
+            file: api_yamdb/Dockerfile 
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
