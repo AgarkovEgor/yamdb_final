@@ -29,7 +29,7 @@ services:
 
     volumes:
 
-      - ngnix_value:./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - /home/user/nginx/default.conf:/etc/nginx/conf.d/default.conf
       - static_value:/var/html/static/
       - media_value:/var/html/media/
 
@@ -38,6 +38,5 @@ services:
 
 volumes:
   db_value:
-  ngnix_value:
   static_value:
   media_value:
